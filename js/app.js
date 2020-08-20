@@ -67,7 +67,7 @@ new ImageAlph('Y', 'png');
 new ImageAlph('Z', 'png');
 
 
-function LevelOne (name, ext) {
+function LevelOne(name, ext) {
   this.name = name;
   this.ext = ext;
   this.filePath = `img/${name}.${ext}`;
@@ -79,7 +79,7 @@ new LevelOne('Star', 'png');
 new LevelOne('Dog', 'png');
 
 
-function LevelTwo (name, ext) {
+function LevelTwo(name, ext) {
   this.name = name;
   this.ext = ext;
   this.filePath = `img/${name}.${ext}`;
@@ -90,7 +90,7 @@ new LevelTwo('Apple', 'png');
 new LevelTwo('Dragon', 'png');
 new LevelTwo('Bubble', 'png');
 
-function LevelThree (name, ext) {
+function LevelThree(name, ext) {
   this.name = name;
   this.ext = ext;
   this.filePath = `img/${name}.${ext}`;
@@ -101,7 +101,7 @@ new LevelThree('Elephant', 'png');
 new LevelThree('Strawberry', 'png');
 new LevelThree('Butterfly', 'png');
 
-function Giff (name, ext) {
+function Giff(name, ext) {
   this.name = name;
   this.ext = ext;
   this.filePath = `img/${name}.${ext}`;
@@ -112,11 +112,11 @@ new Giff('giphy', 'gif');
 new Giff('kid', 'gif');
 new Giff('kid', 'gif');
 
-function startButtonBye () {
+function startButtonBye() {
   var elem = document.getElementById('start');
   if (elem === null) {
     console.log('true');
-  }else{
+  } else {
     elem.parentNode.removeChild(elem);
   }
 
@@ -133,25 +133,24 @@ function randWord() {
 
 var viewedImage = [];
 var strings = '';
-function startFunction () {
-  debugger;
+function startFunction() {
   var z = document.getElementsByClassName('z');
   var zz = document.getElementsByClassName('done');
   console.log(z);
   if (z.length === 0) {
     console.log('true');
 
-  }else {
+  } else {
     for (var i = z.length - 1; i >= 0; --i) {
       z[i].remove();
 
-    } 
+    }
   }
   if (zz.length === 0) {
     console.log('true');
 
-  }else {
-    for ( i = zz.length - 1; i >= 0; --i) {
+  } else {
+    for (i = zz.length - 1; i >= 0; --i) {
       zz[i].remove();
 
     }
@@ -159,7 +158,6 @@ function startFunction () {
   }
 
   var currentImage = [];
-  debugger;
   currentImage[0] = randWord();
   while (viewedImage.indexOf(currentImage[0]) !== -1) {
     currentImage[0] = randWord();
@@ -168,8 +166,8 @@ function startFunction () {
 
   }
   viewedImage = currentImage;
-  viewedImages ++;
-  
+  viewedImages++;
+
   console.log('currentimage', currentImage);
   console.log('viewedimage', viewedImage);
   var newElem = document.createElement('img');
@@ -182,16 +180,16 @@ function startFunction () {
   var string = levels.one[currentImage].name;
 
   strings = string;
-  var word =[];
+  var word = [];
   var indexLoca = [];
 
-  for ( i = 0; i < string.length; i++) {
+  for (i = 0; i < string.length; i++) {
     word[i] = string.charAt(i);
     word[i] = word[i].toUpperCase();
 
   }
   wordCheck.push(word);
-  for ( i = 0; i < word.length; i++) {
+  for (i = 0; i < word.length; i++) {
     var newSlots = document.createElement('li');
     newSlots.className = word[i];
     // newSlots.className += 'z';
@@ -204,7 +202,7 @@ function startFunction () {
 
   console.log('word', word);
   for (var j = 0; j < word.length; j++) {
-    for( var k = 0; k < allAlphabets.length; k++) {
+    for (var k = 0; k < allAlphabets.length; k++) {
       if (word[j] === allAlphabets[k].name) {
         console.log('true');
         indexLoca[j] = (k);
@@ -216,7 +214,7 @@ function startFunction () {
 
   var currentTen = [];
 
-  for ( i = 0; i < 12 - indexLoca.length; i++) {
+  for (i = 0; i < 12 - indexLoca.length; i++) {
     currentTen[i] = getRandom();
   }
 
@@ -228,7 +226,7 @@ function startFunction () {
   var shuffled = shuffle(wordPlusRandom);
   console.log('shuffled', shuffled);
   // debugger;
-  for ( i = 0; i < shuffled.length; i++) {
+  for (i = 0; i < shuffled.length; i++) {
 
     var imgElem = document.createElement('img');
 
@@ -248,12 +246,11 @@ function startFunction () {
   r.innerHTML = 'Pick Your Letters!';
   r.className = 'q';
 
-  debugger;
 
-  if (typeof(element) !== 'undefined' && element !== null) {
+  if (typeof (element) !== 'undefined' && element !== null) {
     console.log('true');
 
-  }else{
+  } else {
     startButtonBye();
   }
 
@@ -262,16 +259,15 @@ function startFunction () {
 var imgString = [];
 var filePath = []; //  use for local storage
 var newSlot = [];
-var wordCheck =[];
+var wordCheck = [];
 var trueCount = 0;
 
-var click = function(event) {
-  
-  debugger;
+var click = function (event) {
   // console.log('clicked', event.target.id);
-  for(var i = 0; i < wordCheck.length; i++) { 
-    for(var j = 0; j < wordCheck[i].length; j++) {
-      if(event.target.id === wordCheck[i][j]) {
+  console.log(wordCheck)
+  for (var i = 0; i < wordCheck.length; i++) {
+    for (var j = 0; j < wordCheck[i].length; j++) {
+      if (event.target.id === wordCheck[i][j]) {
         console.log('true', event.target.id, wordCheck[i][j]);
 
         trueCount += 1;
@@ -279,24 +275,24 @@ var click = function(event) {
         console.log('elem', elem);
         elem.remove();
         delete wordCheck[i][j];
-      // wordCheck[0].splice(i, 1);
+        // wordCheck[0].splice(i, 1);
         console.log('wordcheck', wordCheck);
         var list = document.getElementsByClassName(event.target.id);
         console.log('list', list);
         var newElem = document.createElement('img');
         newElem = elem;
         console.log('newElem', newElem);
-        
+
         for (var k = 0; k < newSlot.length; k++) {
-          if (elem.id === newSlot[k].className){
+          if (elem.id === newSlot[k].className) {
             console.log('true', elem.id, newSlot[k].className);
+            console.log(list);
             list[0].append(newElem);
             newElem.id = 'done';
             list[0].className = 'done';
           }
         }
-        debugger;
-      }else {
+      } else {
         console.log('false', event.target.id, wordCheck[i][j]);
       }
     }
@@ -304,7 +300,7 @@ var click = function(event) {
   }
 
   // for (var i = 0; i < newSlot.length; i++) {
-  if (trueCount === wordCheck[0].length){
+  if (trueCount === wordCheck[0].length) {
     console.log('true', trueCount);
 
     goodJob();
@@ -329,9 +325,8 @@ function getRandom() {
   return Math.floor(Math.random() * allAlphabets.length);
 }
 
-var goodJob = function() { // not used yet
-  debugger;
-  
+var goodJob = function () { // not used yet
+
   wordCheck = [];
   trueCount = 0;
   var elem = document.getElementById('modal');
@@ -362,10 +357,9 @@ var goodJob = function() { // not used yet
   // startFunction();
 };
 
-var goodJobLevelOne = function() { // not used yet
-  debugger;
+var goodJobLevelOne = function () { // not used yet
 
-  
+
   var elem = document.getElementById('modal');
 
   var div1 = document.createElement('div');
@@ -409,8 +403,7 @@ function randomGiff() {
 
 
 function gif() {
-  debugger;
-  if (viewedImages === 3 ){
+  if (viewedImages === 3) {
     goodJobLevelOne();
   }
   rem();
@@ -563,8 +556,7 @@ function gif() {
 
 
 //removes divs on click
-function removeDiv () {
-  debugger;
+function removeDiv() {
   var fadeTarget = document.getElementById(event.target.id);
 
   var fadeEffect = setInterval(function () {
@@ -581,7 +573,7 @@ function removeDiv () {
 
 
 //function to remove paragraph and button
-function rem () {
+function rem() {
   var a = document.getElementById('p');
   var b = document.getElementById('but');
   a.remove();
@@ -590,7 +582,7 @@ function rem () {
 
 var squareArray = [];
 
-function nextWord () {
+function nextWord() {
   var removePuzzle = document.getElementById('a');
   // var elemPic = document.getElementsByClassName('z');
   removePuzzle.remove();
